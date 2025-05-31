@@ -20,12 +20,12 @@ func main() {
 
 	router := gin.New()
 	router.Use(gin.Logger())
-	router.UserRoutes(router)
-	router.use(middleware.Authentication())
+	routes.UserRoutes(router)
+	router.Use(middleware.Authentication())
 
 	routes.FoodRoutes(router)
 	routes.MenuRoutes(router)
-	routes.TableRoutes()
+	routes.TableRoutes(router)
 	routes.OrderRoutes(router)
 	routes.OrderItemRoutes(router)
 	routes.InvoiceRoutes(router)
